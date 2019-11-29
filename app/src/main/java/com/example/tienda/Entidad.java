@@ -1,12 +1,13 @@
 package com.example.tienda;
 
 public class Entidad {
-    private int prod, camion;
+    private int camion;
+    private String thumb;
     private String nombre,proveedor;
-    private float precio, entrega;
+    private double precio, entrega;
 
-    public Entidad(int prod, int camion, String nombre, String proveedor, float precio, float entrega) {
-        this.prod = prod;
+    public Entidad(String thumb, int camion, String nombre, String proveedor, double precio, double entrega) {
+        this.thumb = thumb;
         this.camion = camion;
         this.nombre = nombre;
         this.proveedor = proveedor;
@@ -14,12 +15,12 @@ public class Entidad {
         this.entrega = entrega;
     }
 
-    public int getProd() {
-        return prod;
+    public String getThumb() {
+        return thumb;
     }
 
-    public void setProd(int prod) {
-        this.prod = prod;
+    public void setThumb(String thumb) {
+        this.thumb = thumb;
     }
 
     public int getCamion() {
@@ -46,7 +47,7 @@ public class Entidad {
         this.proveedor = proveedor;
     }
 
-    public float getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
@@ -54,7 +55,7 @@ public class Entidad {
         this.precio = precio;
     }
 
-    public float getEntrega() {
+    public double getEntrega() {
         return entrega;
     }
 

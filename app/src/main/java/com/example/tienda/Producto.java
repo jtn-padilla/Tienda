@@ -3,9 +3,9 @@ package com.example.tienda;
 public class Producto {
     int id;
     String name, thumbnail_url, provider;
-    float price, delivery;
+    double price, delivery;
 
-    public Producto(int id, String name, String thumbnail_url, String provider, float price, float delivery) {
+    public Producto(int id, String name, String thumbnail_url, String provider, double price, double delivery) {
         this.id = id;
         this.name = name;
         this.thumbnail_url = thumbnail_url;
@@ -46,7 +46,7 @@ public class Producto {
         this.provider = provider;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
@@ -54,7 +54,7 @@ public class Producto {
         this.price = price;
     }
 
-    public float getDelivery() {
+    public double getDelivery() {
         return delivery;
     }
 

@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 
 public class Adaptador extends BaseAdapter {
@@ -46,13 +48,20 @@ public class Adaptador extends BaseAdapter {
         TextView tvPrecio = (TextView) convertView.findViewById(R.id.tvPrecio);
         TextView tvEntrega = (TextView) convertView.findViewById(R.id.tvEntrega);
 
-        ivProducto.setImageResource(item.getProd());
         ivCamion.setImageResource(item.getCamion());
 
         tvNombre.setText(item.getNombre());
         tvProveedor.setText(item.getProveedor());
-        tvPrecio.setText(String.valueOf(item.getPrecio()));
-        tvEntrega.setText(String.valueOf(item.getEntrega()));
+        tvPrecio.setText("Precio: $" + String.valueOf(item.getPrecio()));
+
+        if(item.getEntrega()==0.0)
+            tvEntrega.setText("Costo de envío: GRATIS");
+        else
+            tvEntrega.setText("Costo de envío: $" + String.valueOf(item.getEntrega()));
+
+        Picasso.with(contexto)
+                .load(listItems.get(position).getThumb())
+                .into(ivProducto);
 
         return convertView;
     }
