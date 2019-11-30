@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -72,6 +73,17 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
             adaptador = new Adaptador(MainActivity.this, getArrayItems(productos));
             lvLista.setAdapter(adaptador);
 
+            lvLista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent intent = new Intent(MainActivity.this, ProductoActivity.class);
+                    intent.putExtra("ID", id);
+                    //Toast.makeText(MainActivity.this, String.valueOf(id), Toast.LENGTH_SHORT).show();
+                    startActivity(intent);
+                }
+            });
+
+
         }
         catch (JSONException e) {
             e.printStackTrace();
@@ -83,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
         ArrayList<Entidad> listItems = new ArrayList<>();
         // match imagenes con productos
         for (Producto prod: lista)
-            listItems.add(new Entidad(prod.getThumbnail_url(),R.drawable.deliver,prod.getName(),prod.getProvider(),prod.getPrice(),prod.getDelivery()));
+            listItems.add(new Entidad(prod.getId(),prod.getThumbnail_url(),R.drawable.deliver,prod.getName(),prod.getProvider(),prod.getPrice(),prod.getDelivery()));
 
         return listItems;
     }
