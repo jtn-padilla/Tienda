@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements Response.ErrorLis
         setContentView(R.layout.activity_main);
 
         queue = Volley.newRequestQueue(this);
-        url = "https://www.serverbpw.com/cm/2020-1/products.php";
+        url = getResources().getString(R.string.url_prods);
         request = new JsonArrayRequest(Request.Method.GET, url, null, this, this);
         queue.add(request);
     }

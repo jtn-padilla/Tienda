@@ -2,6 +2,7 @@ package com.example.tienda;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
@@ -38,13 +39,12 @@ public class ProductoActivity extends AppCompatActivity implements Response.Erro
         ivImagenProd = findViewById(R.id.ivImagenProd);
 
         Bundle bundle = new Bundle();
-
         bundle = getIntent().getExtras();
 
         final long id = bundle.getLong("ID");
 
         queue = Volley.newRequestQueue(this);
-        url = "https://www.serverbpw.com/cm/2020-1/product_detail.php?id=" + id;
+        url = getResources().getString(R.string.url_descs) + id;
         request = new JsonObjectRequest(Request.Method.GET, url, null, this, this);
         queue.add(request);
 

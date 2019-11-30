@@ -51,7 +51,7 @@ public class Adaptador extends BaseAdapter {
         ivCamion.setImageResource(item.getCamion());
 
         tvNombre.setText(item.getNombre());
-        tvProveedor.setText(item.getProveedor());
+        tvProveedor.setText("De: " + item.getProveedor());
         tvPrecio.setText("Precio: $" + String.valueOf(item.getPrecio()));
 
         if(item.getEntrega()==0.0)
